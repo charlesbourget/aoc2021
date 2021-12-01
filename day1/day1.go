@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/charlesbourget/aoc2021/lib"
+	"math"
 )
 
 func main() {
@@ -28,16 +29,12 @@ func part1(input []int) int {
 
 func part2(input []int) int {
 	count := 0
-	lastSum := 0
-
-	for i := range input {
-		if i+2 < len(input) {
-			sum := input[i+2] + input[i+1] + input[i]
-			if sum > lastSum && lastSum > 0 {
-				count++
-			}
-			lastSum = sum
+	lastSum := math.MaxInt
+	for i := 0; i < len(input)-2; i++ {
+		if input[i+2] > lastSum {
+			count++
 		}
+		lastSum = input[i]
 	}
 
 	return count
