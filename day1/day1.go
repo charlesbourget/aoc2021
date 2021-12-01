@@ -13,11 +13,11 @@ func main() {
 		return
 	}
 
-	fmt.Printf("Part 1: %d\n", part1(input))
-	fmt.Printf("Part 2: %d\n", part2(input))
+	fmt.Printf("Part 1: %d\n", Part1(input))
+	fmt.Printf("Part 2: %d\n", Part2(input))
 }
 
-func part1(input []int) int {
+func Part1(input []int) int {
 	count := 0
 	for i := 0; i < len(input)-1; i++ {
 		if input[i] < input[i+1] {
@@ -27,7 +27,7 @@ func part1(input []int) int {
 	return count
 }
 
-func part2(input []int) int {
+func Part2(input []int) int {
 	count := 0
 	lastSum := math.MaxInt
 	for i := 0; i < len(input)-2; i++ {
