@@ -19,8 +19,8 @@ func main() {
 
 func part1(input []int) int {
 	count := 0
-	for i := range input {
-		if i > 0 && input[i-1] < input[i] {
+	for i := 0; i < len(input)-1; i++ {
+		if input[i] < input[i+1] {
 			count++
 		}
 	}
