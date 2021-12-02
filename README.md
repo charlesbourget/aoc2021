@@ -1,5 +1,5 @@
 # ⭐️ Advent of Code 2021 ⭐️
-[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=4%20⭐&color=blue)]()
+[![Stars collected](https://shields.io/static/v1?label=stars%20collected&message=6%20⭐&color=blue)]()
 
 My solutions of AOC 2021 in Go. Currently, learning Go so the 
 solutions are probably not idiomatic or fast.
@@ -23,4 +23,11 @@ To run the tests for a single  run the following command :
 
 ```bash
 go test ./day1
+```
+
+To run and time everything run [run-all.mjs](./run-all.mjs). You'll need Node >= 14.X.X and yarn.
+
+```bash
+yarn install
+yarn run-all
 ```

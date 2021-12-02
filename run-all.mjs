@@ -20,3 +20,6 @@ for await (const d of await fs.promises.opendir(".")) {
     console.log(chalk.green(`Runtime ${dir}: ${run_time.toString()}`));
   }
 }
+
+// Clean up
+await $`rm -f *_bin`;

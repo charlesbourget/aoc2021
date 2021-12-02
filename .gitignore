@@ -17,3 +17,7 @@
 /Godeps/
 
 .idea/
+
+### JS stuff ###
+node_modules
+*_bin
