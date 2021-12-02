@@ -6,7 +6,9 @@ $.verbose = false;
 
 const re = /day\d+/g;
 
-for await (const d of await fs.promises.opendir(".")) {
+cd('../')
+
+for await (const d of await fs.promises.opendir('..')) {
   if (d.isDirectory() && re.exec(d.name)) {
     const dir = d.name;
     let compile = await $`time go build -o ${dir}_bin ./${dir}`;
