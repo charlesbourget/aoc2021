@@ -15,14 +15,14 @@ func main() {
 		return
 	}
 
-	fmt.Printf("Part 1: %d\n", Part1(input))
-	fmt.Printf("Part 2: %d\n", Part2(input))
-}
-
-func Part1(input []string) int {
 	numbers := parseNumbers(input[0])
 	boards := parseBoards(input[1:])
 
+	fmt.Printf("Part 1: %d\n", Part1(numbers, boards))
+	fmt.Printf("Part 2: %d\n", Part2(numbers, boards))
+}
+
+func Part1(numbers []string, boards []board) int {
 	for _, v := range numbers {
 		for _, b := range boards {
 			findNumber(b, v)
@@ -36,9 +36,7 @@ func Part1(input []string) int {
 	return 0
 }
 
-func Part2(input []string) int {
-	numbers := parseNumbers(input[0])
-	boards := parseBoards(input[1:])
+func Part2(numbers []string, boards []board) int {
 	isLast := false
 	lastBoard := 0
 
