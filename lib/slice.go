@@ -2,6 +2,7 @@ package lib
 
 import "fmt"
 
+// Sum To sum all values of int slice
 func Sum(values []int) (count int) {
 	for _, v := range values {
 		count += v
@@ -10,6 +11,7 @@ func Sum(values []int) (count int) {
 	return
 }
 
+// Unpack To unpack a slice of two elements
 func Unpack(values []string) (string, string) {
 	if len(values) != 2 {
 		fmt.Println("Unpack only accept len=2 this will fail...")
@@ -18,6 +20,7 @@ func Unpack(values []string) (string, string) {
 	return values[0], values[1]
 }
 
+// UnpackInt To unpack a slice of two elements and convert them to int
 func UnpackInt(values []string) (int, int) {
 	value1, value2 := Unpack(values)
 
