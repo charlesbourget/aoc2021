@@ -40,9 +40,9 @@ func Part2(input []string) int {
 
 func parse(input []string, diag bool) (lines []line) {
 	for _, v := range input {
-		coordo := strings.Split(v, " -> ")
-		x1, y1 := lib.UnpackInt(strings.Split(coordo[0], ","))
-		x2, y2 := lib.UnpackInt(strings.Split(coordo[1], ","))
+		values1, values2 := lib.Unpack(strings.Split(v, " -> "))
+		x1, y1 := lib.UnpackInt(strings.Split(values1, ","))
+		x2, y2 := lib.UnpackInt(strings.Split(values2, ","))
 
 		lines = append(lines, line{x1, y1, x2, y2})
 	}

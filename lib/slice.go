@@ -15,6 +15,7 @@ func Sum(values []int) (count int) {
 func Unpack(values []string) (string, string) {
 	if len(values) != 2 {
 		fmt.Println("Unpack only accept len=2 this will fail...")
+		return "", ""
 	}
 
 	return values[0], values[1]

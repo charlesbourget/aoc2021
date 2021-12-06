@@ -1,10 +1,14 @@
 package lib
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 // ToInt Basically ignoring errors
 func ToInt(value string) (result int) {
-	result, err := strconv.Atoi(value)
+	formattedValue := strings.Trim(value, " ")
+	result, err := strconv.Atoi(formattedValue)
 	if err != nil {
 		panic(err)
 	}
@@ -13,7 +17,8 @@ func ToInt(value string) (result int) {
 
 // ToIntBin Basically ignoring errors and converting from int64 to int
 func ToIntBin(value string) int {
-	result64, err := strconv.ParseInt(value, 2, 64)
+	formattedValue := strings.Trim(value, " ")
+	result64, err := strconv.ParseInt(formattedValue, 2, 64)
 	if err != nil {
 		panic(err)
 	}
