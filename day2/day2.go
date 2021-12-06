@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/charlesbourget/aoc2021/lib"
-	"strconv"
 	"strings"
 )
 
@@ -22,11 +21,11 @@ func Part1(input []string) int {
 	x := 0
 	z := 0
 	for _, line := range input {
-		instruction := strings.Split(line, " ")
-		value, _ := strconv.Atoi(instruction[1])
-		switch instruction[0] {
+		instruction, valueStr := lib.Unpack(strings.Split(line, " "))
+		value := lib.ToInt(valueStr)
+		switch instruction {
 		case "forward":
-			 x += value
+			x += value
 		case "down":
 			z += value
 		case "up":
@@ -41,9 +40,9 @@ func Part2(input []string) int {
 	x := 0
 	z := 0
 	for _, line := range input {
-		instruction := strings.Split(line, " ")
-		value, _ := strconv.Atoi(instruction[1])
-		switch instruction[0] {
+		instruction, valueStr := lib.Unpack(strings.Split(line, " "))
+		value := lib.ToInt(valueStr)
+		switch instruction {
 		case "forward":
 			x += value
 			z += aim * value

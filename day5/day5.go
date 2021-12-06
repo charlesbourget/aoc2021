@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/charlesbourget/aoc2021/lib"
-	"strconv"
 	"strings"
 )
 
@@ -42,12 +41,8 @@ func Part2(input []string) int {
 func parse(input []string, diag bool) (lines []line) {
 	for _, v := range input {
 		coordo := strings.Split(v, " -> ")
-		initial := strings.Split(coordo[0], ",")
-		final := strings.Split(coordo[1], ",")
-		x1, _ := strconv.Atoi(initial[0])
-		y1, _ := strconv.Atoi(initial[1])
-		x2, _ := strconv.Atoi(final[0])
-		y2, _ := strconv.Atoi(final[1])
+		x1, y1 := lib.UnpackInt(strings.Split(coordo[0], ","))
+		x2, y2 := lib.UnpackInt(strings.Split(coordo[1], ","))
 
 		lines = append(lines, line{x1, y1, x2, y2})
 	}

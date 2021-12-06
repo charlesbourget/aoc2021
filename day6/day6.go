@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/charlesbourget/aoc2021/lib"
-	"strconv"
 	"strings"
 )
 
@@ -25,7 +24,7 @@ func Part1(input []string) int {
 		days = simulate(days)
 	}
 
-	return countFish(days)
+	return lib.Sum(days)
 }
 
 func Part2(input []string) int {
@@ -35,15 +34,14 @@ func Part2(input []string) int {
 		days = simulate(days)
 	}
 
-	return countFish(days)
+	return lib.Sum(days)
 }
 
 func parse(input string) []int {
 	numbers := strings.Split(input, ",")
 	days := make([]int, 9)
 	for _, number := range numbers {
-		daysToHatch, _ := strconv.Atoi(number)
-		days[daysToHatch] += 1
+		days[lib.ToInt(number)] += 1
 	}
 	return days
 }
@@ -60,12 +58,4 @@ func simulate(days []int) []int {
 	}
 
 	return newSlice
-}
-
-func countFish(days []int) (count int) {
-	for _, v := range days {
-		count += v
-	}
-
-	return
 }

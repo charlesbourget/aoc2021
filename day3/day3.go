@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/charlesbourget/aoc2021/lib"
-	"strconv"
 )
 
 func main() {
@@ -17,7 +16,7 @@ func main() {
 	fmt.Printf("Part 2: %d\n", Part2(input))
 }
 
-func Part1(input []string) int64 {
+func Part1(input []string) int {
 	acc := make([]int, len(input[0]))
 	for _, v := range input {
 		chars := []rune(v)
@@ -36,15 +35,12 @@ func Part1(input []string) int64 {
 			gamma += "1"
 		}
 	}
-	gammaValue, _ := strconv.ParseInt(gamma, 2, 64)
-	epsValue, _ := strconv.ParseInt(eps, 2, 64)
-	return gammaValue * epsValue
+
+	return lib.ToIntBin(gamma) * lib.ToIntBin(eps)
 }
 
-func Part2(input []string) int64 {
-	oxyRating, _ := strconv.ParseInt(findRating(input, 0, true), 2, 64)
-	co2Rating, _ := strconv.ParseInt(findRating(input, 0, false), 2, 64)
-	return oxyRating * co2Rating
+func Part2(input []string) int {
+	return lib.ToIntBin(findRating(input, 0, true)) * lib.ToIntBin(findRating(input, 0, false))
 }
 
 func findRating(data []string, position int, isOxy bool) string {

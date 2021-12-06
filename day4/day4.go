@@ -162,8 +162,7 @@ func calculateScore(b board, n string) int {
 	sum := 0
 	for _, r := range b.rows {
 		for _, v := range r {
-			value, _ := strconv.Atoi(v)
-			sum += value
+			sum += lib.ToInt(v)
 		}
 	}
 
