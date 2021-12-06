@@ -26,3 +26,13 @@ func UnpackInt(values []string) (int, int) {
 
 	return ToInt(value1), ToInt(value2)
 }
+
+// ToIntSlice Convert a slice of string to a slice of int
+func ToIntSlice(values []string) []int {
+	result := make([]int, len(values))
+	for i, v := range values {
+		result[i] = ToInt(v)
+	}
+
+	return result
+}

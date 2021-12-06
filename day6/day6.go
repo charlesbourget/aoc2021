@@ -38,10 +38,10 @@ func Part2(input []string) int {
 }
 
 func parse(input string) []int {
-	numbers := strings.Split(input, ",")
+	numbers := lib.ToIntSlice(strings.Split(input, ","))
 	days := make([]int, 9)
 	for _, number := range numbers {
-		days[lib.ToInt(number)] += 1
+		days[number] += 1
 	}
 	return days
 }
