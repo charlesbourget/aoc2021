@@ -1,6 +1,9 @@
 package lib
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // Sum To sum all values of int slice
 func Sum(values []int) (count int) {
@@ -36,4 +39,38 @@ func ToIntSlice(values []string) []int {
 	}
 
 	return result
+}
+
+func Min(values []int) (min int) {
+	min, _ = MinMax(values)
+	return
+}
+
+func Max(values []int) (max int) {
+	_, max = MinMax(values)
+	return
+}
+
+func MinMax(values []int) (min int, max int) {
+	min = math.MaxInt
+	for _, v := range values {
+		if v < min {
+			min = v
+		}
+
+		if v > max {
+			max = v
+		}
+	}
+
+	return
+}
+
+func Seq(min int, max int) []int {
+	r := make([]int, 0, max-min+1)
+	for v := min; v <= max; v++ {
+		r = append(r, v)
+	}
+
+	return r
 }
