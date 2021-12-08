@@ -1,27 +1,36 @@
 #!/usr/bin/env zx
 import "fs";
 import "path";
+import { chalk } from "zx";
 
 $.verbose = false;
 
-const re = /day\d+/g;
+cd("..");
+await $`mkdir -p bin`;
+await $`mkdir -p out`;
+const data = {};
 
-cd('../')
+const paths = await globby("../day*", {
+  expandDirectories: true,
+  onlyFiles: false,
+});
 
-for await (const d of await fs.promises.opendir('..')) {
-  if (d.isDirectory() && re.exec(d.name)) {
-    const dir = d.name;
-    let compile = await $`time go build -o ${dir}_bin ./${dir}`;
-    let compile_time =
-      await $`echo ${compile.toString()} | grep "real" | awk '{print $2}'`;
-    console.log(chalk.yellow(`Compile ${dir}: ${compile_time.toString()}`));
+for (const path of paths) {
+  const name = path.split("/")[1];
+  await $`go build -o bin/${name}_bin ./${name}`;
 
-    let run = await $`time ./${dir}_bin`;
-    let run_time =
-      await $`echo ${run.toString()} | grep "real" | awk '{print $2}'`;
-    console.log(chalk.green(`Runtime ${dir}: ${run_time.toString()}`));
-  }
+  await $`hyperfine --warmup 10 --export-json out/${name}.json bin/${name}_bin`;
+  const dayData = fs.readJSONSync(`../out/${name}.json`);
+  data[name] = dayData.results[0];
+  delete data[name]["times"];
+  delete data[name]["exit_codes"];
+
+  console.log(chalk.green(`${name}: ${data[name]["mean"]} s`));
 }
 
+fs.writeFileSync("../out/results.json", JSON.stringify(data));
+
 // Clean up
-await $`rm -f *_bin`;
+await $`rm -rf ./bin`;
+
+console.log(chalk.green("All JSON results in ../out"));
