@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/charlesbourget/aoc2021/lib"
 	"reflect"
-	"sort"
 	"strconv"
 	"strings"
 )
@@ -114,14 +113,14 @@ func decodeInput(in []string, segments []string) []string {
 			toGuess := strings.Split(iv, "")
 			one := strings.Split(segments[1], "")
 			if len(segmentSubstraction(toGuess, one)) == 5 {
-				segments[6] = sortString(iv)
+				segments[6] = lib.SortString(iv)
 			} else {
 				four := strings.Split(segments[4], "")
 				r := segmentSubstraction(toGuess, four)
 				if len(r) == 3 {
-					segments[0] = sortString(iv)
+					segments[0] = lib.SortString(iv)
 				} else {
-					segments[9] = sortString(iv)
+					segments[9] = lib.SortString(iv)
 				}
 			}
 		case 5:
@@ -135,27 +134,20 @@ func decodeInput(in []string, segments []string) []string {
 			toGuess := strings.Split(iv, "")
 			one := strings.Split(segments[1], "")
 			if len(segmentSubstraction(toGuess, one)) == 3 {
-				segments[3] = sortString(iv)
+				segments[3] = lib.SortString(iv)
 			} else {
 				four := strings.Split(segments[4], "")
 				r := segmentSubstraction(toGuess, four)
 				if len(r) == 3 {
-					segments[2] = sortString(iv)
+					segments[2] = lib.SortString(iv)
 				} else {
-					segments[5] = sortString(iv)
+					segments[5] = lib.SortString(iv)
 				}
 			}
 		}
 	}
 
 	return segments
-}
-
-func sortString(in string) (out string) {
-	temp := strings.Split(in, "")
-	sort.Strings(temp)
-	out = strings.Join(temp, "")
-	return
 }
 
 func decodeOutput(out []string, segments []string) int {
@@ -165,7 +157,7 @@ func decodeOutput(out []string, segments []string) int {
 			result += strconv.Itoa(guess(ov))
 		} else {
 			for i, s := range segments {
-				if reflect.DeepEqual(sortString(ov), s) {
+				if reflect.DeepEqual(lib.SortString(ov), s) {
 					result += strconv.Itoa(i)
 					break
 				}
