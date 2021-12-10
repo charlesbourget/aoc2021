@@ -76,6 +76,7 @@ func MinMax(values []int) (min int, max int) {
 	return
 }
 
+// Seq returns a slice of values between min and max
 func Seq(min int, max int) []int {
 	r := make([]int, 0, max-min+1)
 	for v := min; v <= max; v++ {
