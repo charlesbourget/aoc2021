@@ -53,7 +53,7 @@ func isValidLine(v string) (bool, int) {
 	line := strings.Split(v, "")
 	var stack []string
 	for _, c := range line {
-		if isAClosing(c) {
+		if isClosingChar(c) {
 			n := len(stack) - 1
 			last := stack[n]
 			if isClosing(last, c) {
@@ -73,7 +73,7 @@ func isCompleteLine(v string) (bool, []string) {
 	line := strings.Split(v, "")
 	var stack []string
 	for _, c := range line {
-		if isAClosing(c) {
+		if isClosingChar(c) {
 			n := len(stack) - 1
 			last := stack[n]
 			if isClosing(last, c) {
@@ -93,7 +93,7 @@ func isClosing(o string, c string) bool {
 	return closing-opening <= 2 && closing-opening > 0
 }
 
-func isAClosing(c string) bool {
+func isClosingChar(c string) bool {
 	return c == ")" || c == "]" || c == "}" || c == ">"
 }
 
