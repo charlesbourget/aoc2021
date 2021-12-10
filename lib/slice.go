@@ -14,6 +14,16 @@ func Sum(values []int) (count int) {
 	return
 }
 
+// Mult To sum all values of int slice
+func Mult(values []int) (count int) {
+	count = 1
+	for _, v := range values {
+		count *= v
+	}
+
+	return
+}
+
 // Unpack To unpack a slice of two elements
 func Unpack(values []string) (string, string) {
 	if len(values) != 2 {
