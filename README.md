@@ -16,13 +16,13 @@ Project structure built using [aocprep](https://github.com/charlesbourget/aocpre
 To run a single day simply run the following command :
 
 ```bash
-go run ./day1
+go run ./dayXX
 ```
 
 To run the tests for a single  run the following command :
 
 ```bash
-go test ./day1
+go test ./dayXX
 ```
 
 To run and time everything run [run-all.mjs](./scripts/run-all.mjs). You'll need Node >= 14.X.X and yarn.
