@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/charlesbourget/aoc2021/lib"
 	"reflect"
 	"strconv"
 	"strings"
+
+	"github.com/charlesbourget/aoc2021/lib"
 )
 
 func main() {
-	input, err := lib.Read("day8/input")
+	input, err := lib.Read("day08/input")
 	if err != nil {
 		fmt.Println("Error while reading input. ", err)
 		return

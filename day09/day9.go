@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/charlesbourget/aoc2021/lib"
 	"sort"
 	"strings"
+
+	"github.com/charlesbourget/aoc2021/lib"
 )
 
 type point struct {
@@ -13,7 +14,7 @@ type point struct {
 }
 
 func main() {
-	input, err := lib.Read("day9/input")
+	input, err := lib.Read("day09/input")
 	if err != nil {
 		fmt.Println("Error while reading input. ", err)
 		return

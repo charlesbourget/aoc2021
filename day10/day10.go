@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/charlesbourget/aoc2021/lib"
 	"sort"
 	"strings"
+
+	"github.com/charlesbourget/aoc2021/lib"
 )
 
 func main() {

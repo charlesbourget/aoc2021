@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/charlesbourget/aoc2021/lib"
 	"math"
+
+	"github.com/charlesbourget/aoc2021/lib"
 )
 
 func main() {
-	input, err := lib.ReadInt("day1/input")
+	input, err := lib.ReadInt("day01/input")
 	if err != nil {
 		fmt.Println("Error while reading input. ", err)
 		return
