@@ -65,8 +65,8 @@ func runStep(board [][]int) ([][]int, int) {
 }
 
 func increaseByOne(board [][]int) [][]int {
-	for i, _ := range board {
-		for j, _ := range board[i] {
+	for i := range board {
+		for j := range board[i] {
 			board[i][j] += 1
 		}
 	}
@@ -89,8 +89,8 @@ func flash(board [][]int) ([][]int, int) {
 
 func flashBoard(board [][]int) ([][]int, int) {
 	flashes := 0
-	for i, _ := range board {
-		for j, _ := range board[i] {
+	for i := range board {
+		for j := range board[i] {
 			v := board[i][j]
 			if v == 10 {
 				flashes += 1
@@ -112,7 +112,7 @@ func flashBoard(board [][]int) ([][]int, int) {
 }
 
 func resetBoard(board [][]int) [][]int {
-	for i, _ := range board {
+	for i := range board {
 		for j, v := range board[i] {
 			if v == 11 {
 				board[i][j] = 0
