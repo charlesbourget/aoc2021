@@ -162,7 +162,6 @@ func validateColumns(b board) bool {
 func calculateScore(b board, n string) int {
 	sum := 0
 	for _, r := range b.rows {
-		fmt.Println(r)
 		for _, v := range r {
 			if v != "" {
 				sum += lib.ToInt(v)
