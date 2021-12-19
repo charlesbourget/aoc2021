@@ -13,3 +13,8 @@ func MinInt(x int, y int) int {
 	min := math.Min(float64(x), float64(y))
 	return int(min)
 }
+
+func MaxInt(x int, y int) int {
+	max := math.Max(float64(x), float64(y))
+	return int(max)
+}
